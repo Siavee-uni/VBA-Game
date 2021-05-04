@@ -2,13 +2,15 @@
 
 namespace App\Http\Livewire;
 
+use App\Rules\CompareStrings;
+use Illuminate\Http\Request;
 use Livewire\Component;
 
 class Tasks extends Component
 {
     public $model;
     public $input;
-    public $codeBlockInput;
+    public $dbCodeBlock;
     public $textarea;
     public $formSubmitted;
 
@@ -22,7 +24,7 @@ class Tasks extends Component
 
     public function mount()
     {
-        $this->codeBlockInput = "
+        $this->dbCodeBlock = "
             Sub HelloWorld()
 
             End Sub
@@ -33,22 +35,25 @@ class Tasks extends Component
         $this->formSubmitted = false;
     }
 
+   /* public function rules()
+    {
+        return [
+            'dbCodeBlock' => ['required', new CompareStrings()],
+        ];
+    }*/
+    protected $rules = [
+        'dbCodeBlock' => 'required|min:200',
+    ];
+
     public function submit()
     {
-        $rules = [
-        'codeBlockInput' => 'required|min:2',
-        ];
-
-        $customMessages = [
-            'min' => 'The field is required.'
-        ];
-        $this->validate($rules, $customMessages);
+        $this->validate();
 
         // increase lv
         $this->exp = $this->exp + 10;
         if ($this->exp >= 100) {
             $this->exp = $this->exp - 100;
-            $this->lv = $this->lv + 1 ;
+            $this->lv = $this->lv + 1;
         }
         // show success message
         $this->formSubmitted = true;

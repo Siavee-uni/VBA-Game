@@ -14,10 +14,11 @@
     {{--code block--}}
     <form wire:submit.prevent="submit">
         <textarea class="mt-4 px-3 py-4 relative bg-gray-200 rounded text-base border border-gray-200 w-full lg:w-2/4 h-44" id="comment" required>
-           {{$codeBlockText}}
+           {{$dbCodeBlock}}
         </textarea>
-        @error('codeBlockInput') <span class="error">{{ $message }}</span> @enderror
+        @error('dbCodeBlock') <span class="error">{{ $message }}</span> @enderror
         <button type="submit" class="">send</button>
+    <div wire:loading>Loading data</div>
     </form>
     {{--succes message--}}
     @if ($formSubmitted)
