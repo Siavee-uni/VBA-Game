@@ -13,6 +13,7 @@ class Tasks extends Component
     public $dbCodeBlock;
     public $textarea;
     public $formSubmitted;
+    public $message;
 
     public $exp;
     public $lv;
@@ -24,26 +25,19 @@ class Tasks extends Component
 
     public function mount()
     {
-        $this->dbCodeBlock = "
-            Sub HelloWorld()
-
-            End Sub
-        ";
+        $this->dbCodeBlock = "Sub HelloWorl";
         /*set exp for lv*/
         $this->exp = 10;
         $this->lv = 0;
         $this->formSubmitted = false;
     }
 
-   /* public function rules()
+    public function rules()
     {
         return [
             'dbCodeBlock' => ['required', new CompareStrings()],
         ];
-    }*/
-    protected $rules = [
-        'dbCodeBlock' => 'required|min:200',
-    ];
+    }
 
     public function submit()
     {

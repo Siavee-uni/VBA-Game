@@ -14,6 +14,7 @@ class CompareStrings implements Rule
     public $value;
     public $dbvalue;
     public $lineError;
+    public $compareValue;
 
     public function __construct()
     {
@@ -30,14 +31,15 @@ class CompareStrings implements Rule
     public function passes($attribute, $value)
     {
         $this->dbvalue = "Sub HelloWorld()
-        end";
+        end
+        fs";
         $this->value = $value;
-        $lineError = $this->compare($this->dbvalue,$value);
-        if (!$lineError) {
-            $this->lineError = $lineError;
-            return false;
+/*        dd($this->dbvalue,$this->value);*/
+        $compareValue = $this->compare($this->dbvalue,$value);
+        if ($compareValue) {
+            return true;
         }
-        return true;
+        return false;
     }
 
     /**
@@ -47,22 +49,23 @@ class CompareStrings implements Rule
      */
     public function message()
     {
-        return 'Es gab einen Fehler in Zeile' . $this->lineError;
+        return 'Es gab einen Fehler in Zeile ' . $this->lineError + 1;
     }
 
     function compare($dbvalue , $forminput) {
         $newdbvalue = array_values(array_filter(explode("\n", str_replace("\r", "", $dbvalue))));
         $newforminput = array_values(array_filter(explode("\n", str_replace("\r", "", $forminput))));
         // remove empty entrys
-        foreach ($newforminput as $key => $value)
+        /*dd($newdbvalue,$newforminput);*/
+        foreach ($newdbvalue as $key => $value)
         {
             $valueWithoutSpace = strtolower(str_replace(' ', '', $value));
-            $dbvalueWithoutSpace = strtolower(str_replace(' ', '', $newdbvalue[$key]));
-
+            $dbvalueWithoutSpace = strtolower(str_replace(' ', '', $newforminput[$key]));
             if (strcmp($valueWithoutSpace, $dbvalueWithoutSpace) !== 0) {
-                return  $key;
+                $this->lineError =$key;
+                return false;
             }
-            return true;
         }
+        return true;
     }
 }

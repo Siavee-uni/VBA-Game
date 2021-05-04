@@ -11,17 +11,14 @@ class task extends Component
      *
      * @return void
      */
-    public $dbCodeBlock;
     public $errors;
     public $formSubmitted;
 
 
-    public function __construct($dbCodeBlock,$errors,$formSubmitted)
+    public function __construct($errors,$formSubmitted)
     {
-        $this->dbCodeBlock = $dbCodeBlock;
         $this->errors = $errors;
         $this->formSubmitted = $formSubmitted;
-
     }
 
     /**

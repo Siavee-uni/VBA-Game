@@ -13,8 +13,7 @@
     </div>
     {{--code block--}}
     <form wire:submit.prevent="submit">
-        <textarea class="mt-4 px-3 py-4 relative bg-gray-200 rounded text-base border border-gray-200 w-full lg:w-2/4 h-44" id="comment" required>
-           {{$dbCodeBlock}}
+        <textarea wire:model="dbCodeBlock" name="dbCodeBlock" class="mt-4 px-3 py-4 relative bg-gray-200 rounded text-base border border-gray-200 w-full lg:w-2/4 h-44" id="comment" required>
         </textarea>
         @error('dbCodeBlock') <span class="error">{{ $message }}</span> @enderror
         <button type="submit" class="">send</button>
