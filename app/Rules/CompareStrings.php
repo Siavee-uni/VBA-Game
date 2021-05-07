@@ -31,8 +31,7 @@ class CompareStrings implements Rule
     public function passes($attribute, $value)
     {
         $this->dbvalue = "Sub HelloWorld()
-        end
-        fs";
+        end sub";
         $this->value = $value;
 /*        dd($this->dbvalue,$this->value);*/
         $compareValue = $this->compare($this->dbvalue,$value);

@@ -1,0 +1,79 @@
+
+$bodyColor: #333;
+$colorBg: #20292E;
+$colorSecondary: #294548;
+$colorPrimary: #0BD7D6;
+$fontSize: 1.3em;
+$marginWidth: 1em;
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: $colorBg;
+}
+
+@mixin flex($direction, $wrap, $justifyContent, $alignItems) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+}
+
+.flex { @include flex(row, wrap, flex-star, stretch); }
+
+.flex-center { @include flex(row, wrap, center, stretch); }
+
+.flex-column { @include flex(column, wrap, center, stretch); }
+
+.flex-column-center { @include flex(column, wrap, flex-start, center); }
+
+.flex-column-center-center { @include flex(column, wrap, center, center); }
+
+
+
+h2 {
+    color: $colorSecondary;
+    text-align: center;
+}
+
+.content-container {
+    font-size: $fontSize;
+    @media (max-width: 768px) {
+        font-size: 1em;
+    }
+
+    .content {
+        margin: $marginWidth;
+
+        .item {
+            @media (max-width: 768px) {
+                font-size: 1em;
+                min-width: 14em;
+            }
+            font-size: $fontSize;
+            cursor: default;
+            background-color: $colorSecondary;
+            border: 0.1em solid $colorPrimary;
+            margin-top: 0.5em;
+            padding: 0.2em 0 0.2em 0;
+            min-width: 18em;
+            color: $colorPrimary;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 0.5em;
+            transition: all 0.2s linear;
+
+            &:hover {
+                background-color: $colorPrimary;
+                order: 0.1em solid $colorSecondary;
+                color: $colorSecondary;
+                box-shadow: 0 0 0.2em rgba(255,255,255,0.8);
+            }
+        }
+    }
+}

@@ -10,11 +10,16 @@
     <livewire:scripts />--}}
 </head>
 
-<body class="container bg-gray-50 mx-auto place-content-center		">
+<body class="container mx-auto my-auto ">
 
 <!-- component -->
-
-<x-menu :exp="1" :lv="2"/>
+<div class="justify-center	">
+    <x-menu-button name="Profile" buttonSize="1,3rem"/>
+    <x-menu-button name="Lerne VBA" buttonSize="1,3rem"/>
+    <x-menu-button name="Herausforderung"  buttonSize="1,3rem"/>
+    <x-menu-button name="Rangliste" buttonSize="1,3rem"/>
+    <x-menu-button name="Logout" buttonSize="1,1m"/>
+</div>
 
 
 </body>
