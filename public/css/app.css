@@ -104,6 +104,10 @@ body {
   align-items: center;
 }
 
+.color-slime {
+  color: #0BD7D6;
+}
+
 h2 {
   color: #294548;
   text-align: center;
@@ -122,7 +126,7 @@ h2 {
 }
 .content-container .content .item {
   font-size: 1.3em;
-  cursor: default;
+  cursor: pointer;
   background-color: #294548;
   border: 0.1em solid #0BD7D6;
   margin-top: 0.5em;

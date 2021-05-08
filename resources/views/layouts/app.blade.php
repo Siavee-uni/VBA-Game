@@ -7,14 +7,13 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'VBA-Game') }}</title>
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
         <!-- Scripts -->
         @livewireStyles
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans">
+    <body>
         {{ $slot }}
         @livewireScripts
+        <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
     </body>
 </html>

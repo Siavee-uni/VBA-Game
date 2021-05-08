@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/tasks', \App\Http\Livewire\Tasks::class);
+Route::get('/', \App\Http\Livewire\Index::class)->name("index");
+Route::get('/tutorial', \App\Http\Livewire\Tasks::class)->name("tutorial");
 
 require __DIR__.'/auth.php';

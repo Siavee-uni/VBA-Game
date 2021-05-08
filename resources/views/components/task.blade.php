@@ -12,12 +12,17 @@
         <div class="hint-image w-10 h-5 bg-green-500 float-right"></div>
     </div>
     {{--code block--}}
-    <form wire:submit.prevent="submit">
-        <textarea wire:model="dbCodeBlock" name="dbCodeBlock" class="mt-4 px-3 py-4 relative bg-gray-200 rounded text-base border border-gray-200 w-full lg:w-2/4 h-44" id="comment" required>
+    <form wire:submit.prevent="submit" class="lg:w-2/4">
+        <textarea wire:model="dbCodeBlock" name="dbCodeBlock" class="mt-4 px-3 py-4 relative bg-gray-200 rounded text-base border border-gray-200 w-full h-44" id="comment" required>
         </textarea>
-        @error('dbCodeBlock') <span class="error">{{ $message }}</span> @enderror
-        <button type="submit" class="">send</button>
-    <div wire:loading>Loading data</div>
+        @error('dbCodeBlock')
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-1 rounded relative" role="alert">
+            <span class="block sm:inline">{{ $message }}</span>
+            <strong class="font-bold"></strong>
+        </div>
+        @enderror
+        <button type="submit" class="float-right mt-2 py-1 px-4 border border-blue-500 rounded">send</button>
+        <div wire:loading>Loading data</div>
     </form>
     {{--succes message--}}
     @if ($formSubmitted)

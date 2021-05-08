@@ -34,7 +34,9 @@ body {
 .flex-column-center-center { @include flex(column, wrap, center, center); }
 
 
-
+.color-slime {
+    color: $colorPrimary;
+}
 h2 {
     color: $colorSecondary;
     text-align: center;
@@ -45,17 +47,15 @@ h2 {
     @media (max-width: 768px) {
         font-size: 1em;
     }
-
     .content {
         margin: $marginWidth;
-
         .item {
             @media (max-width: 768px) {
                 font-size: 1em;
                 min-width: 14em;
             }
             font-size: $fontSize;
-            cursor: default;
+            cursor: pointer;
             background-color: $colorSecondary;
             border: 0.1em solid $colorPrimary;
             margin-top: 0.5em;
