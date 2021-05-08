@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 .vba-tasks {
-    grid-template-columns: fit-content(1px) auto;
+    grid-template-columns: fit-content(1px) auto auto;
 }
 
 #exit {
