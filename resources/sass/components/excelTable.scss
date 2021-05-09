@@ -1,20 +1,24 @@
-$gray: rgb(243, 242, 241);
+$gray: #babdc5;
 $green: rgb(33, 115, 70);
-$gray-dark: rgb(230, 230, 230);
-$gray-darker: rgb(205, 205, 205);
+$gray-dark: #20292e;
+$gray-darker: #767980;
 
 @mixin flex-centered {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+.exclel-main-content {
+    max-width: fit-content;
+}
 .cells {
+    color: #a6b6d8;
     position: relative;
     display: grid;
-    grid-template-columns: 40px repeat(4, calc((100% - 50px) / 11));
+    grid-template-columns: 40px repeat(4, 100px);
     grid-template-rows: repeat(10, 25px);
     grid-gap: 1px;
-    background: white;
+    background: #a6b6d8;
     grid-auto-flow: dense;
     max-width: 100%;
     overflow: hidden;
@@ -53,9 +57,9 @@ $gray-darker: rgb(205, 205, 205);
         border-right: 1px solid black;
     }
     input, button {
-        border-top: 1px solid #e2e2e2;
-        border-right: 1px solid #e2e2e2;
-        background: #fff;
+        border-top: 1px solid #babdc5;
+        border-right: 1px solid #babdc5;
+        background: #20292e;
         padding: 0 6px;
         font-family: 'Noto Sans', sans-serif;
     }
@@ -71,13 +75,13 @@ $gray-darker: rgb(205, 205, 205);
         grid-row: 15;
         text-align: left;
         padding: 6px;
-        background: #fff;
+        background: #babdc5;
     }
     &__sm-1, &__sm-2, &__sm-3 {
         text-align: center;
         padding: 6px;
         grid-row: 15;
-        background: #fff;
+        background: #babdc5;
     }
     &__sm-1 {
         grid-column: 8;

@@ -1,4 +1,4 @@
-<div class="main-content" >
+<div class="exclel-main-content" >
     <div class="cells">
         <div class="cells__spacer"></div>
         <div class="cells__alphabet">A</div>

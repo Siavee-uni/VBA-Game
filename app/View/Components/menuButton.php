@@ -13,10 +13,12 @@ class menuButton extends Component
      */
     public $name;
     public $buttonSize;
-    public function __construct($name,$buttonSize)
+    public $wireClick;
+    public function __construct($name,$buttonSize,$wireClick)
     {
-        $this->name = $name;
         $this->buttonSize=$buttonSize;
+        $this->wireClick = $wireClick;
+        $this->name = $name;
     }
 
     /**

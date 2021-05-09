@@ -1,5 +1,5 @@
 <?php
-
+require __DIR__.'/auth.php';
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', \App\Http\Livewire\Index::class)->name("index");
+Route::get('/', \App\Http\Livewire\Index::class)->middleware(['auth'])->name("index");
 Route::get('/tutorial', \App\Http\Livewire\Tasks::class)->name("tutorial");
-Route::get('/table', \App\Http\Livewire\ExcelTable::class)->name("excel");
+Route::get('/table', \App\Http\Livewire\CssSiteMenu::class)->name("CssSiteMenu");
+/*Route::group(['middleware'=>'guest'], function () {
+    Route::get('/login')->name('login');
+    Route::get('/table', 'register');
+});*/
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', \App\Http\Livewire\Index::class)->name("index");
+    Route::get('/tutorial', \App\Http\Livewire\Tasks::class)->name("tutorial");
+    Route::get('/table', \App\Http\Livewire\CssSiteMenu::class)->name("CssSiteMenu");
+});
 
-
-require __DIR__.'/auth.php';

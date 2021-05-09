@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Index extends Component
@@ -10,4 +11,10 @@ class Index extends Component
     {
         return view('livewire.index');
     }
+    public function logout()
+    {
+        Auth::logout();
+        return redirect(route('login'));
+    }
+
 }
