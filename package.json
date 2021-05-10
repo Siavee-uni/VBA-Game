@@ -24,6 +24,7 @@
         "tailwindcss": "^2.1.2"
     },
     "dependencies": {
+        "dragula": "^3.7.3",
         "turbolinks": "^5.2.0"
     }
 }

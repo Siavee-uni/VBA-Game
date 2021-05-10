@@ -535,6 +535,151 @@ label {
     opacity: 1;
   }
 }
+
+.drag-and-drop {
+  /* Dragula CSS  */
+  /* Demo info */
+}
+.drag-and-drop ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.drag-and-drop .drag-container {
+  max-width: 1000px;
+  margin: 20px auto;
+}
+.drag-and-drop .drag-list {
+  display: flex;
+  align-items: flex-start;
+}
+@media (max-width: 690px) {
+  .drag-and-drop .drag-list {
+    display: block;
+  }
+}
+.drag-and-drop .drag-column {
+  flex: 1;
+  margin: 0 10px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+@media (max-width: 690px) {
+  .drag-and-drop .drag-column {
+    margin-bottom: 30px;
+  }
+}
+.drag-and-drop .drag-column h2 {
+  font-size: 0.8rem;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.drag-and-drop .drag-column-on-hold .drag-column-header,
+.drag-and-drop .drag-column-on-hold .is-moved,
+.drag-and-drop .drag-column-on-hold .drag-options {
+  background: #FB7D44;
+}
+.drag-and-drop .drag-column-in-progress .drag-column-header,
+.drag-and-drop .drag-column-in-progress .is-moved,
+.drag-and-drop .drag-column-in-progress .drag-options {
+  background: #2A92BF;
+}
+.drag-and-drop .drag-column-needs-review .drag-column-header,
+.drag-and-drop .drag-column-needs-review .is-moved,
+.drag-and-drop .drag-column-needs-review .drag-options {
+  background: #F4CE46;
+}
+.drag-and-drop .drag-column-approved .drag-column-header,
+.drag-and-drop .drag-column-approved .is-moved,
+.drag-and-drop .drag-column-approved .drag-options {
+  background: #00B961;
+}
+.drag-and-drop .drag-column-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+.drag-and-drop .drag-inner-list {
+  min-height: 300px;
+}
+.drag-and-drop .drag-item {
+  margin: 10px;
+  height: 100px;
+  background: rgba(0, 0, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.drag-and-drop .drag-item.is-moving {
+  transform: scale(1.5);
+  background: rgba(0, 0, 0, 0.8);
+}
+.drag-and-drop .drag-header-more {
+  cursor: pointer;
+}
+.drag-and-drop .drag-options {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.drag-and-drop .drag-options.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+.drag-and-drop .drag-options-label {
+  display: block;
+  margin: 0 0 5px 0;
+}
+.drag-and-drop .drag-options-label input {
+  opacity: 0.6;
+}
+.drag-and-drop .drag-options-label span {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-left: 5px;
+}
+.drag-and-drop .gu-mirror {
+  position: fixed !important;
+  margin: 0 !important;
+  z-index: 9999 !important;
+  opacity: 0.8;
+  list-style-type: none;
+}
+.drag-and-drop .gu-hide {
+  display: none !important;
+}
+.drag-and-drop .gu-unselectable {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+.drag-and-drop .gu-transit {
+  opacity: 0.2;
+}
+.drag-and-drop .section {
+  padding: 20px;
+  text-align: center;
+}
+.drag-and-drop .section a {
+  color: white;
+  text-decoration: none;
+  font-weight: 300;
+}
+.drag-and-drop .section h4 {
+  font-weight: 400;
+}
+.drag-and-drop .section h4 a {
+  font-weight: 600;
+}
 /*! tailwindcss v2.1.2 | MIT License | https://tailwindcss.com */
 
 /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
