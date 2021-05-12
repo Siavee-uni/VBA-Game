@@ -5,92 +5,46 @@ $needs-review: #F4CE46;
 $approved: #00B961;
 
 .drag-and-drop {
-
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
+    display: grid;
+    grid-template-columns: fit-content(700px) fit-content(200px);
+    grid-template-rows: fit-content(200px);
 
     .drag-container {
-        max-width: 1000px;
-        margin: 20px auto;
-    }
-
-    .drag-list {
-        display: flex;
-        align-items: flex-start;
-
-        @media (max-width: 690px) {
-            display: block;
-        }
-    }
-
-    .drag-column {
-        flex: 1;
-        margin: 0 10px;
-        position: relative;
-        background: rgba(black, 0.2);
-        overflow: hidden;
-
-        @media (max-width: 690px) {
-            margin-bottom: 30px;
-        }
-
-        h2 {
-            font-size: 0.8rem;
-            margin: 0;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        &-on-hold {
-            .drag-column-header,
-            .is-moved,
-            .drag-options {
-                background: $on-hold;
+        overflow-y: scroll;
+        min-width: 300px;
+        max-height: 500px;
+        #code-snippets {
+            div {
+                padding: 5px 10px 5px 10px;
+                max-height: 50px;
+                display: table;
+                margin: 5px 5px 5px 5px;
             }
-        }
-
-        &-in-progress {
-            .drag-column-header,
-            .is-moved,
-            .drag-options {
-                background: $in-progress;
-            }
-        }
-
-        &-needs-review {
-            .drag-column-header,
-            .is-moved,
-            .drag-options{
-                background: $needs-review;
-            }
-        }
-
-        &-approved {
-            .drag-column-header,
-            .is-moved,
-            .drag-options {
-                background: $approved;
+            div::before{
+                content : attr(data-value);
+                vertical-align: middle;
             }
         }
     }
-
-    .drag-column-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px;
+    #console {
+        min-height: 400px;
+        max-width: 700px;
+        min-width: 400px;
+        display: table;
+        div {
+            padding: 5px 10px 5px 10px;
+            max-height: 50px;
+            display: table;
+            margin: 5px 5px 5px 5px;
+        }
+        div::before{
+            content : attr(data-value);
+            vertical-align: middle;
+        }
     }
-
-    .drag-inner-list {
-        min-height: 300px;
-    }
-
     .drag-item {
         margin: 10px;
-        height: 100px;
+        min-height: 50px;
         background: rgba(black, 0.4);
         transition: $ease-out;
 
@@ -101,42 +55,6 @@ $approved: #00B961;
 
     }
 
-    .drag-header-more {
-        cursor: pointer;
-    }
-
-    .drag-options {
-        position: absolute;
-        top: 44px;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        padding: 10px;
-        transform: translateX(100%);
-        opacity: 0;
-        transition: $ease-out;
-
-        &.active {
-            transform: translateX(0);
-            opacity: 1;
-        }
-
-        &-label {
-            display: block;
-            margin: 0 0 5px 0;
-
-            input {
-                opacity: 0.6;
-            }
-
-            span {
-                display: inline-block;
-                font-size: 0.9rem;
-                font-weight: 400;
-                margin-left: 5px;
-            }
-        }
-    }
 
     /* Dragula CSS  */
 
@@ -162,24 +80,6 @@ $approved: #00B961;
     .gu-transit {
         opacity: 0.2;
     }
-
-    /* Demo info */
-
-    .section {
-        padding: 20px;
-        text-align: center;
-
-        a {
-            color: white;
-            text-decoration: none;
-            font-weight: 300;
-        }
-
-        h4 {
-            font-weight: 400;
-            a {
-                font-weight: 600;
-            }
-        }
-    }
 }
+
+
