@@ -1,10 +1,21 @@
 const dragula = require("dragula");
+const codeBlocks = document.getElementById('code-snippets');
+const console = document.getElementById('console');
 dragula([
-    document.getElementById('code-snippets'),
-    document.getElementById('console'),
-])
+    codeBlocks,
+    console,
+], {
+    copy: true,
+    moves: function (el, container) {
+        return el.parentElement === codeBlocks;
+    }
+})
 
-.on('drag', function (el) {
+dragula([console], {
+    removeOnSpill: true
+});
+
+/*.on('drag', function (el) {
 
     // add 'is-moving' class to element being dragged
     el.classList.add('is-moving');
@@ -21,7 +32,7 @@ dragula([
             el.classList.remove('is-moved');
         }, 600);
     }, 100);
-});
+})*/;
 
 
 

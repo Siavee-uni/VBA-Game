@@ -4,7 +4,7 @@
     </div>
     <x-menu-button name="Profil" wireClick="logout" buttonSize="1,1m"/>
     <livewire:tutorial-menu-button name="Tutorial" buttonSize="1,3rem"/>
-    <x-menu-button name="Herausforderung" wireClick="logout" buttonSize="1,1m"/>
+    <x-menu-button name="Herausforderung" wireClick="challange" buttonSize="1,1m"/>
     <x-menu-button name="Rangliste" wireClick="logout" buttonSize="1,1m"/>
     <x-menu-button name="Logout" wireClick="logout" buttonSize="1,1m"/>
 </div>

@@ -4,16 +4,19 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class console-and-drag-items extends Component
+class CodeBlock extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public $codeBlocks = [];
+    public $submittedCode = [];
+    public function __construct($codeBlocks,$submittedCode)
     {
-        //
+        $this->codeBlocks = $codeBlocks;
+        $this->submittedCode = $submittedCode;
     }
 
     /**
@@ -23,6 +26,6 @@ class console-and-drag-items extends Component
      */
     public function render()
     {
-        return view('components.console-and-drag-items');
+        return view('components.code-block');
     }
 }

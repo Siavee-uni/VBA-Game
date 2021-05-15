@@ -20,5 +20,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/', \App\Http\Livewire\Index::class)->name("index");
     Route::get('/tutorial', \App\Http\Livewire\Tasks::class)->name("tutorial");
     Route::get('/table', \App\Http\Livewire\CssSiteMenu::class)->name("CssSiteMenu");
+    Route::get('/herausforderung', \App\Http\Livewire\ChallangeController::class)->name("challangeController");
 });
 
