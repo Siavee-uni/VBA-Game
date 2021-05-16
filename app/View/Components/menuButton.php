@@ -13,19 +13,15 @@ class menuButton extends Component
      */
     public $name;
     public $buttonSize;
-    public $wireClick;
-    public function __construct($name,$buttonSize,$wireClick)
+    public $wireClickFunction;
+
+    public function __construct($name,$buttonSize,$wireClickFunction)
     {
         $this->buttonSize=$buttonSize;
-        $this->wireClick = $wireClick;
+        $this->wireClickFunction = $wireClickFunction;
         $this->name = $name;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
-     */
     public function render()
     {
         return view('components.menu-button');

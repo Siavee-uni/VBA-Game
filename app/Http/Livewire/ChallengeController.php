@@ -2,42 +2,39 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Challenge;
+use JetBrains\PhpStorm\NoReturn;
 use Livewire\Component;
 
-class ChallangeController extends Component
+class ChallengeController extends Component
 {
-    public $dbCodeBlocks = [];
-    public $codeBlocks = [];
-    public $lv;
-    public $exp;
-    public $formSubmitted;
-    public $submittedCode = [];
+    public object $challenge;
+    public array $codeBlockSolution = [];
+    public int $lv;
+    public int $exp;
+    public bool $formSubmitted;
+    public array $submittedCodeBlocks = [];
 
     public function render()
     {
-        return view('livewire.challange-controller');
+        return view('livewire.challenge-controller');
     }
 
-    public function mount()
+    #[NoReturn] public function mount($id)
     {
-        $this->dbCodeBlocks = [
-            'Sub DoWhileLoop()',
-            'Dim i As Integer',
-            'For n = 1 To 10',
-            'MsgBox n',
-            'Next n',
-            'End Sub',
-        ];
-        $this->codeBlocks = array_values($this->shuffle_array($this->dbCodeBlocks));
+        $this->challenge = Challenge::find($id);
+        // convert string to array
+        $this->codeBlockSolution = explode("\n", str_replace("\r", "", $this->challenge->code_blocks_solution));
+        $this->codeBlockSolution = array_values($this->shuffle_array($this->codeBlockSolution));
+
+        $this->exp = $this->challenge->exp;
         $this->formSubmitted = false;
-        /*set exp for lv*/
-        $this->exp = 10;
         $this->lv = 0;
     }
 
     public function submit($formData)
     {
-        $this->submittedCode = $formData;
+        $this->submittedCodeBlocks = $formData;
         /*dd($this->submittedCode);*/
         if ($this->customValidation($formData)) {
             $this->formSubmitted = true;
@@ -72,7 +69,7 @@ class ChallangeController extends Component
     function customValidation($input): bool
     {
         if (!empty($input)) {
-            $newDbCodeBlock = $this->trim($this->dbCodeBlocks);
+            $newDbCodeBlock = $this->trim($this->codeBlockSolution);
 
             $inputValues = array_values($input); // normalise array
             $inputValues = $this->trim($inputValues);

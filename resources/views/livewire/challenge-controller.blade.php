@@ -1,7 +1,7 @@
 <div>
     <div class="mb-3 pt-0 container">
         <x-task-text/>
-        <x-code-block :codeBlocks="$codeBlocks" :submittedCode="$submittedCode"/>
+        <x-code-block :codeBlocks="$codeBlockSolution" :submittedCode="$submittedCodeBlocks"/>
        {{-- <livewire:code-block/>--}}
         @if ($formSubmitted)
             <x-task-succes-message>

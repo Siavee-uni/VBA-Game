@@ -16,10 +16,10 @@ class CreateTutorialsTable extends Migration
         Schema::create('tutorials', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('title');
-            $table->string('description');
-            $table->string('task-title');
-            $table->string('task-description');
+            $table->string('title')->nullable();
+            $table->string('description')->nullable();
+            $table->string('task_title');
+            $table->string('task_description');
             $table->integer('exp');
             $table->timestamps();
         });

@@ -16,9 +16,9 @@ class Index extends Component
         Auth::logout();
         return redirect(route('login'));
     }
-    public function challange()
+    public function challenges()
     {
-        return redirect(route('challangeController'));
+        return redirect(route('Challanges'));
     }
 
 }
