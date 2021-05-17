@@ -3,17 +3,20 @@
 namespace App\Http\Livewire;
 
 use App\Models\Challenge;
+use Illuminate\Support\Facades\Auth;
 use JetBrains\PhpStorm\NoReturn;
 use Livewire\Component;
 
 class ChallengeController extends Component
 {
     public object $challenge;
-    public array $codeBlockSolution = [];
-    public int $lv;
+    public $user;
     public int $exp;
-    public bool $formSubmitted;
+
+    public array $codeBlockSolution = [];
     public array $submittedCodeBlocks = [];
+
+    public bool $formSubmitted;
 
     public function render()
     {
@@ -23,31 +26,31 @@ class ChallengeController extends Component
     #[NoReturn] public function mount($id)
     {
         $this->challenge = Challenge::find($id);
+        $this->user = Auth::User();
+        $this->exp = $this->user->exp;
+        /*dd($this->user);*/
         // convert string to array
         $this->codeBlockSolution = explode("\n", str_replace("\r", "", $this->challenge->code_blocks_solution));
-        $this->codeBlockSolution = array_values($this->shuffle_array($this->codeBlockSolution));
-
-        $this->exp = $this->challenge->exp;
+        $this->codeBlockSolution = $this->shuffle_array($this->codeBlockSolution);
         $this->formSubmitted = false;
-        $this->lv = 0;
     }
 
     public function submit($formData)
     {
-        $this->submittedCodeBlocks = $formData;
-        /*dd($this->submittedCode);*/
-        if ($this->customValidation($formData)) {
-            $this->formSubmitted = true;
-        }
-        // increase lv
-        /*$this->exp = $this->exp + 10;
-        if ($this->exp >= 100) {
-            $this->exp = $this->exp - 100;
-            $this->lv = $this->lv + 1;
+        if (Auth::check()) {
+            $this->submittedCodeBlocks = $formData;
+            /*dd($this->submittedCode);*/
+            if ($this->customValidation($formData)) {
+                $this->formSubmitted = true;
+            }
         }
         // show success message
-        $this->formSubmitted = true;*/
+        $this->formSubmitted = true;
 
+        if ($this->exp >= 50) {
+            $this->exp = $this->exp - 105;
+        }
+        $this->exp = $this->exp + 50;
         /*Contact::create([
             'name' => $this->name,
             'email' => $this->email,
@@ -97,6 +100,6 @@ class ChallengeController extends Component
         foreach ($keys as $key) {
             $random[$key] = $array[$key];
         }
-        return $random;
+        return array_values($random);
     }
 }

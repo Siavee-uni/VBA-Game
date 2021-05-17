@@ -1,4 +1,7 @@
-<div>
+<div class="md:container md:mx-auto">
+    <div class="float-right mr-4">
+        <x-profile-card :user="$user" :exp="$exp"/>
+    </div>
     <div class="mb-3 pt-0 container">
         <x-task-text/>
         <x-code-block :codeBlocks="$codeBlockSolution" :submittedCode="$submittedCodeBlocks"/>
