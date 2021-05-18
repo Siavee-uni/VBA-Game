@@ -43,6 +43,10 @@ class User extends Authenticatable
 
     public function tutorials(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->belongsToMany('App\Tutorial')->withPivot('note')->withTimestamps();
+        return $this->belongsToMany('App\Models\Tutorial')->withPivot('complete')->withTimestamps();
+    }
+    public function challenges(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany('App\Models\Challenge')->withPivot('complete','note')->withTimestamps();
     }
 }

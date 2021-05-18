@@ -604,7 +604,7 @@ label {
 }
 
 .profile {
-  max-width: 500px;
+  max-width: 400px;
   border: 1px solid #babdc5;
   border-radius: 20px;
   padding: 2em;
@@ -618,6 +618,7 @@ label {
 }
 .profile .level-bar {
   position: relative;
+  min-width: 130px;
 }
 .profile .frame {
   position: absolute;
@@ -631,12 +632,14 @@ label {
 .profile .underlay {
   height: 20px;
   width: 0;
+  max-width: 100%;
   background-position: 0 100%;
   background-image: url(https://www.dropbox.com/s/oweepr3p3dq3odz/GuildMain2_BarUnderlay.png?dl=1);
   transition: all 2s ease-in-out;
 }
 .profile .overlay {
   height: 20px;
+  max-width: 100%;
   width: 0;
   background-position: 100% 0;
   background-image: url(https://www.dropbox.com/s/aq9f5gg59kvw0ec/GuildMain2_BarOverlay.png?dl=1);
@@ -646,8 +649,8 @@ label {
   margin: 0;
 }
 .profile figure img {
-  max-width: 150px;
-  max-height: 150px;
+  max-width: 120px;
+  max-height: 120px;
   border-radius: 50%;
   padding: 10px;
   box-shadow: 0px 0px 20px rgba(21, 21, 21, 0.15);

@@ -11,6 +11,6 @@ class Tutorial extends Model
 
     public function users(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->belongsToMany('App\User')->withTimestamps();
+        return $this->belongsToMany('App\Models\User')->withTimestamps();
     }
 }
