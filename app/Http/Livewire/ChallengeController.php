@@ -1,4 +1,5 @@
 <?php
+/*declare(strict_types=1);*/
 
 namespace App\Http\Livewire;
 
@@ -10,8 +11,9 @@ use Livewire\Component;
 class ChallengeController extends Component
 {
     public object $challenge;
-    public $user;
+    public mixed $user;
     public int $userExpBar;
+    public mixed $challengeCompleted;
 
     public array $codeBlocks = [];
     public array $submittedCodeBlocks = [];
@@ -30,11 +32,15 @@ class ChallengeController extends Component
         $this->user = User::find(Auth::id());
         $this->userExpBar = $this->user->exp;
 
-        $this->codeBlocks = shuffle_array(stringToArray($this->challenge->code_blocks_solution));
-        /*if (!empty($this->user->challenges[0]->pivot->complete)) {
-            $this->formSubmitted = $this->user->challenges[0]->pivot->complete;
-            return;
-        }*/
+        $this->codeBlocks = array_filter(shuffle_array(stringToArray($this->challenge->code_blocks_solution)));
+
+
+        $challengeAttempted = $this->user->challenges()
+            ->where('id', $this->challenge->id)
+            ->first();
+        if ($challengeAttempted) {
+            $this->challengeCompleted = $challengeAttempted->pivot->complete;
+        }
         $this->formSubmitted = false;
         $this->expGained = false;
     }
@@ -45,28 +51,29 @@ class ChallengeController extends Component
         if (Auth::check()) {
             $this->submittedCodeBlocks = $formData;
 
-            if ($this->customValidate($formData)) {
+            if ($this->validateCodeBlocks($formData)) {
                 $this->formSubmitted = true;
-                if ($this->user->challenges[0]->pivot->complete) {
-                    $this->expGained = true;
+
+                if ($this->challengeCompleted) {
                     return;
                 }
 
                 if ($this->userExpBar + $this->challenge->exp >= 100) {
-                    $this->userExpBar = $this->userExpBar - 100;
+                    $this->userExpBar -= 100;
                 }
 
                 $this->userExpBar += $this->challenge->exp;
+                $this->expGained = true;
 
-                $this->user->level += 1 ;
+                $this->user->level += 1;
                 $this->user->exp += $this->challenge->exp;
                 $this->user->save();
-                $this->user->challenges()->attach($this->challenge->id,['complete' => true]);
+                $this->user->challenges()->attach($this->challenge->id, ['complete' => true]);
             }
         }
     }
 
-    function customValidate($input): bool
+    function validateCodeBlocks($input): bool
     {
         if (!empty($input)) {
             $solution = tolowerRemoveSpace(stringToArray($this->challenge->code_blocks_solution));
@@ -85,7 +92,7 @@ class ChallengeController extends Component
                     return false;
                 }
             }
-            if (count($solution) ==! count($inputValues)) {
+            if (count($solution) == !count($inputValues)) {
                 $this->addError('console-error', 'Dein Code scheint nicht das zu tuhen was er soll.');
                 return false;
             }

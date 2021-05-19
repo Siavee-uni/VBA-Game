@@ -766,6 +766,189 @@ label {
     left: 15px;
   }
 }
+.ranking-container {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  background: #16a8a3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.ranking-container h1, .ranking-container h2, .ranking-container h3, .ranking-container h4, .ranking-container h5, .ranking-container h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+}
+.ranking-container h1, .ranking-container h2 {
+  font-size: 1.5em;
+}
+.ranking-container h2.sub.header {
+  font-size: 1em;
+}
+.ranking-container .row {
+  margin-bottom: 40px;
+}
+.ranking-container .card {
+  display: grid;
+  grid-template-columns: auto auto;
+  background: #fff;
+  min-width: 50%;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px 0 rgba(34, 36, 38, 0.12), 0 2px 10px 0 rgba(34, 36, 38, 0.15), 0 55px 50px -20px rgba(34, 36, 38, 0.25);
+}
+.ranking-container .card-section {
+  flex-grow: 1;
+  padding: 40px;
+}
+.ranking-container .card-info {
+  position: relative;
+  background: linear-gradient(to bottom, #626d82 0%, #343d4d 100%);
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+.ranking-container .card-info h2.sub.header {
+  color: rgba(255, 255, 255, 0.3);
+}
+.ranking-container .card-info .menu, .ranking-container .card-info .search {
+  position: absolute;
+  font-size: 3em;
+  left: 40px;
+}
+.ranking-container .card-info .menu {
+  top: 40px;
+}
+.ranking-container .card-info .search {
+  bottom: 40px;
+}
+.ranking-container .card-details {
+  position: relative;
+  color: rgba(0, 0, 0, 0.6);
+}
+.ranking-container .avatar img {
+  display: inline-block;
+  background-size: cover;
+  border-radius: 50%;
+  height: 75px;
+  width: 75px;
+  border: 3px solid #e45b6c;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 2px 10px 0 rgba(0, 0, 0, 0.15);
+}
+.ranking-container .dial {
+  color: #e45b6c;
+  text-shadow: 1px 1px 0 white;
+  background: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  height: 150px;
+  margin: 50px 0;
+  padding: 40px;
+  box-shadow: 0 4px 15px -10px rgba(0, 0, 0, 0.1), 0 5px 15px 1px rgba(0, 0, 0, 0.18), 0 0 0 15px #fff, 0 0 0 22px #e45b6c, 0 55px 50px -20px rgba(34, 36, 38, 0.25);
+}
+.ranking-container .dial-title {
+  font-size: 3.8em;
+  font-weight: 400;
+  line-height: 0.8;
+}
+.ranking-container .dial-value {
+  font-size: 1.8em;
+}
+.ranking-container .menu {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.ranking-container .menu-item {
+  font-size: 1.6em;
+  font-weight: 400;
+  padding: 20px 40px;
+  color: rgba(0, 0, 0, 0.3);
+  color: black;
+}
+.ranking-container .menu-item:not(:last-child) {
+  box-shadow: 25px 0 0 -24px rgba(0, 0, 0, 0.2);
+}
+.ranking-container .menu-item:last-child {
+  text-align: right;
+}
+.ranking-container .menu-item-active {
+  color: #c12a3c;
+}
+.ranking-container .statistics {
+  display: flex;
+  justify-content: center;
+}
+.ranking-container .statistics .statistic {
+  padding: 0 20px;
+  min-width: 120px;
+}
+.ranking-container .statistics .statistic:not(:last-child) {
+  box-shadow: 20px 0 0px -19px rgba(255, 255, 255, 0.2);
+}
+.ranking-container .statistics .statistic-title {
+  font-size: 1.5em;
+}
+.ranking-container .statistics .statistic-value {
+  color: #e45b6c;
+  font-size: 2em;
+}
+.ranking-container .progress {
+  display: flex;
+  background: rgba(0, 0, 0, 0.1);
+  min-height: 12px;
+  overflow: hidden;
+}
+.ranking-container .progress-bar {
+  background: red;
+  min-height: 10px;
+}
+.ranking-container .leaderboard {
+  height: 100%;
+  counter-reset: leaderboard-counter;
+  max-height: 500px;
+}
+.ranking-container .leaderboard dt {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 10px;
+}
+.ranking-container .leaderboard dt:before {
+  content: counter(leaderboard-counter);
+  counter-increment: leaderboard-counter;
+  position: absolute;
+  font-size: 1.3em;
+  line-height: 0.8;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.8);
+  border-radius: 50%;
+  border: 2px solid #c6c4c4;
+  display: inline-flex;
+  width: 2.2rem;
+  height: 2.2rem;
+  justify-content: center;
+  align-items: center;
+  top: -80%;
+  left: -3%;
+}
+.ranking-container .leaderboard dt:first-of-type:before {
+  border-color: #f5cd75;
+}
+.ranking-container .leaderboard dt:nth-of-type(2):before {
+  border-color: #0000ff5e;
+}
+.ranking-container .leaderboard dt:nth-of-type(3):before {
+  border-color: #c6906b;
+}
+.ranking-container .leaderboard dd {
+  display: flex;
+  margin-bottom: 40px;
+  justify-content: space-between;
+  margin-left: 40px;
+}
+.ranking-container .leaderboard-value {
+  font-weight: 700;
+}
 /*! tailwindcss v2.1.2 | MIT License | https://tailwindcss.com */
 
 /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */

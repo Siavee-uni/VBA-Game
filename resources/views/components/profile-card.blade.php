@@ -4,13 +4,14 @@
     </figure>
     <header>
         <h1 class="color-slime">{{$user->name}}</h1>
-            <div class="color-slime mt-4">Level {{$user->level}}</div>
-            <div class="level-bar">
-                <div class="underlay" style="background-position:{{$exp}}%, -{{$exp}}%; width:{{$exp}}%;">
-                    <div class="overlay" style="background-position:-{{$exp}}%, {{$exp}}%; width:{{$exp}}%; "></div>
-                </div>
-                <div class="frame"></div>
+        <div class="color-slime mt-4">Level {{$user->level}}</div>
+        <div class="level-bar">
+            <div class="underlay" style="background-position:{{$exp}}%, -{{$exp}}%; width:{{$exp}}%;">
+                <div class="overlay" style="background-position:-{{$exp}}%, {{$exp}}%; width:{{$exp}}%; "></div>
             </div>
+            <div class="frame"></div>
+        </div>
+        <div class="color-slime">Ranking:</div>
     </header>
 
     <div class="toggle">

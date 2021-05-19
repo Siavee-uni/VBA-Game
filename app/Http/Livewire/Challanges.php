@@ -12,6 +12,6 @@ class Challanges extends Component
     }
     public function challenge($id)
     {
-        return redirect()->route('challengeController', ['id' => $id]);
+        return redirect()->route('challenge', ['id' => $id]);
     }
 }

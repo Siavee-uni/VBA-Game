@@ -6,14 +6,9 @@ use Illuminate\View\Component;
 
 class menuButton extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public $name;
-    public $buttonSize;
-    public $wireClickFunction;
+    public string $name;
+    public string $buttonSize;
+    public string $wireClickFunction;
 
     public function __construct($name,$buttonSize,$wireClickFunction)
     {

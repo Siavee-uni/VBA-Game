@@ -17,7 +17,6 @@ class CreateChallengeUserTable extends Migration
             $table->primary(['challenge_id','user_id']);
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('challenge_id')->unsigned();
-            $table->string('note')->nullable();
             $table->boolean('complete')->default(false);
             $table->foreign('user_id')
                 ->references('id')

@@ -14,7 +14,7 @@
                 All of your code should go in between the start and the end of the procedure.
             </x-task-succes-message>
         @endif
-        @if (!$expGained)
+        @if ($expGained)
             <x-task-exp-message>
                 You have gained 10exp
             </x-task-exp-message>

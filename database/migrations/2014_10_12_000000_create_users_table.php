@@ -18,6 +18,8 @@ class CreateUsersTable extends Migration
             $table->integer('level')->default(1);
             $table->integer('exp')->default(0);
             $table->string('name');
+            $table->string('image')->nullable();;
+            $table->string('course')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

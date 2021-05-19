@@ -20,7 +20,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/', \App\Http\Livewire\Index::class)->name("index");
     Route::get('/tutorial', \App\Http\Livewire\Tasks::class)->name("tutorial");
     Route::get('/table', \App\Http\Livewire\CssSiteMenu::class)->name("CssSiteMenu");
-    Route::get('/herausforderungen', \App\Http\Livewire\Challanges::class)->name("Challanges");
-    Route::get('/herausforderung/{id}', \App\Http\Livewire\ChallengeController::class)->name("challengeController");
+    Route::get('/herausforderungen', \App\Http\Livewire\Challanges::class)->name("challenges");
+    Route::get('/herausforderung/{id}', \App\Http\Livewire\ChallengeController::class)->name("challenge");
+    Route::get('/rangliste', \App\Http\Livewire\RankingController::class)->name("ranking");
 });
 
