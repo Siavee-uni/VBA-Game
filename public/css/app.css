@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,700,300);
+@import url(https://fonts.googleapis.com/css?family=Amarante);
 .button-wrapper {
   position: fixed;
   top: 50%;
@@ -948,6 +949,106 @@ label {
 }
 .ranking-container .leaderboard-value {
   font-weight: 700;
+}
+
+/** page structure **/
+#table-wrapper {
+  overflow-y: scroll;
+  display: block;
+  width: 850px;
+  background: #fff;
+  margin: 0 auto;
+  padding: 10px 17px;
+  -webkit-box-shadow: 2px 2px 3px -1px rgba(0, 0, 0, 0.35);
+}
+#table-wrapper br {
+  display: block;
+  line-height: 1.6em;
+}
+#table-wrapper article, #table-wrapper aside, #table-wrapper details, #table-wrapper figcaption, #table-wrapper figure, #table-wrapper footer, #table-wrapper header, #table-wrapper hgroup, #table-wrapper menu, #table-wrapper nav, #table-wrapper section {
+  display: block;
+}
+#table-wrapper ol, #table-wrapper ul {
+  list-style: none;
+}
+#table-wrapper input, #table-wrapper textarea {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  box-sizing: border-box;
+  outline: none;
+}
+#table-wrapper blockquote, #table-wrapper q {
+  quotes: none;
+}
+#table-wrapper blockquote:before, #table-wrapper blockquote:after, #table-wrapper q:before, #table-wrapper q:after {
+  content: "";
+  content: none;
+}
+#table-wrapper strong, #table-wrapper b {
+  font-weight: bold;
+}
+#table-wrapper table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+#table-wrapper img {
+  border: 0;
+  max-width: 100%;
+}
+#table-wrapper h1 {
+  font-family: "Amarante", Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 3.6em;
+  line-height: 1.7em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+#table-wrapper #keywords {
+  margin: 0 auto;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+#table-wrapper #keywords thead {
+  cursor: pointer;
+  background: #c9dff0;
+}
+#table-wrapper #keywords thead tr th {
+  font-weight: bold;
+  padding: 12px 30px;
+  padding-left: 42px;
+}
+#table-wrapper #keywords thead tr th span {
+  padding-right: 20px;
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+}
+#table-wrapper #keywords tbody tr {
+  color: #555;
+}
+#table-wrapper #keywords tbody tr td {
+  text-align: center;
+  padding: 15px 10px;
+}
+#table-wrapper #keywords tbody tr td.lalign {
+  text-align: left;
+}
+#table-wrapper .user-table tr:nth-child(odd) {
+  background-color: rgba(22, 43, 68, 0.2);
+}
+#table-wrapper .user-table tr:nth-child(even) {
+  background-color: rgba(222, 208, 237, 0.02);
+}
+#table-wrapper .edit {
+  color: #46b66b;
+  cursor: pointer;
+}
+#table-wrapper .delete {
+  color: #da4545;
+  cursor: pointer;
+}
+#table-wrapper #user-table-top {
+  background-color: rgba(22, 43, 68, 0.4);
 }
 /*! tailwindcss v2.1.2 | MIT License | https://tailwindcss.com */
 
