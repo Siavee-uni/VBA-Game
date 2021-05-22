@@ -9,11 +9,7 @@ class Challenges extends Component
 {
 
     public object $challenges;
-    public $rows = [
-        "test",
-        "test2",
-        "test3",
-    ];
+
     public function render()
     {
         return view('livewire.admin.challenges');

@@ -1,24 +1,25 @@
-@props([
+{{--@props([
 'rows' => ['name'],
-])
-{{ merge(['rows' => $rows]) }}
-@dd($rows)
+])--}}
+
 <div id="table-wrapper">
     <h1>Challenges</h1>
     <table id="keywords" class="user-table">
         <thead>
         <tr>
-            @foreach($rows as $row)
-            <th><span>Name{{$row}}</span></th>
+            @foreach($rowNames as $rowName)
+            <th><span>{{$rowName}}</span></th>
             @endforeach
             <th><span>Edit</span></th>
             <th><span>Delete</span></th>
         </tr>
         </thead>
         <tbody>
-        @foreach($tableData as $d)
+        @foreach($tableData as $data)
             <tr>
-                <td class="lalign">{{$d->name}}</td>
+                @foreach($columns as $column)
+                <td class="lalign">{{$data->$column}}</td>
+                @endforeach
                 <th>
                     <button>
                         <svg xmlns="http://www.w3.org/2000/svg" class="edit h-6 w-6" fill="none" viewBox="0 0 24 24"

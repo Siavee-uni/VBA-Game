@@ -1,1 +1,6 @@
-<x-admin.table :tableData="$challenges" rows="$rows"/>
+<x-admin.table
+    :tableData="$challenges"
+    :columns="['name','exp']"
+    :rowNames="['Name','Exp']"
+/>
+

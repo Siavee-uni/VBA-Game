@@ -53,6 +53,7 @@
         font-weight: bold;
         padding: 12px 30px;
         padding-left: 42px;
+        border-right: solid 1px #00000026;
     }
     #keywords thead tr th span {
         padding-right: 20px;
@@ -66,6 +67,7 @@
     #keywords tbody tr td {
         text-align: center;
         padding: 15px 10px;
+        border-right: solid 1px #00000026;
     }
     #keywords tbody tr td.lalign {
         text-align: left;
