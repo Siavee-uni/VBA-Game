@@ -10,10 +10,12 @@ class Table extends Component
     public $tableData;
     public $rowNames;
     public $columns;
+    public $tzest;
 
-    public function __construct($tableData = null, $rowNames = [], $columns = []  )
+    public function __construct($tableData = [], $rowNames = [], $columns = []  )
     {
         $this->tableData = $tableData;
+        $this->tzest = $tzest;
         $this->rowNames = $rowNames;
         $this->columns = $columns;
     }

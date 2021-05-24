@@ -10,8 +10,4 @@ class Home extends Component
     {
         return view('livewire.admin.home');
     }
-    public function redirectTo($route)
-    {
-        return redirect(route($route));
-    }
 }

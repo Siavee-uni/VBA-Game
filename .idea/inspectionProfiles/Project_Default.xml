@@ -9,8 +9,9 @@
     <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="1">
+          <list size="2">
             <item index="0" class="java.lang.String" itemvalue="wire:click" />
+            <item index="1" class="java.lang.String" itemvalue="wirewire:click" />
           </list>
         </value>
       </option>
@@ -19,7 +20,7 @@
     <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="9">
+          <list size="10">
             <item index="0" class="java.lang.String" itemvalue="nobr" />
             <item index="1" class="java.lang.String" itemvalue="noembed" />
             <item index="2" class="java.lang.String" itemvalue="comment" />
@@ -29,6 +30,7 @@
             <item index="6" class="java.lang.String" itemvalue="x-menu-button" />
             <item index="7" class="java.lang.String" itemvalue="x-profile-card" />
             <item index="8" class="java.lang.String" itemvalue="x-admin.table" />
+            <item index="9" class="java.lang.String" itemvalue="x-admin.sidebar" />
           </list>
         </value>
       </option>

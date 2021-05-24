@@ -22,9 +22,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('admin')->group(function () {
         Route::get('/', \App\Http\Livewire\Admin\Home::class)->name("admin-area");
-        Route::get('/challenges', \App\Http\Livewire\Admin\Challenges::class)->name("admin-challenges");
-        Route::get('/tutorials', \App\Http\Livewire\Admin\Tutorials::class)->name("admin-tutorials");
-        Route::get('/users', \App\Http\Livewire\Admin\Users::class)->name("admin-users");
     });
 });
 

@@ -1,16 +1,13 @@
 {{--@props([
 'rows' => ['name'],
 ])--}}
-
+{{--@dd($tableData)--}}
 <div id="table-wrapper">
-    <h1 wire:model="tzest"></h1>
     <table id="keywords" class="user-table">
         <thead>
         <tr>
-            <a wire:click="load_Users" class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Users</a>
-
-        @foreach($rowNames as $rowName)
-            <th><span>{{$rowName}}</span></th>
+            @foreach($rowNames as $rowName)
+                <th><span>{{$rowName}}</span></th>
             @endforeach
             <th><span>Edit</span></th>
             <th><span>Delete</span></th>
@@ -20,10 +17,10 @@
         @foreach($tableData as $data)
             <tr>
                 @foreach($columns as $column)
-                <td class="lalign">{{$data->$column}}</td>
+                    <td class="lalign">{{$data->$column}}</td>
                 @endforeach
                 <th>
-                    <button>
+                    <button wire:click="$emitTo('admin.modal', 'showModal', {{$data}})">
                         <svg xmlns="http://www.w3.org/2000/svg" class="edit h-6 w-6" fill="none" viewBox="0 0 24 24"
                              stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
