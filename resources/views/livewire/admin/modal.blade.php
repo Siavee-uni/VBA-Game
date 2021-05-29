@@ -25,6 +25,9 @@
                             @if($data)
                                 <div class="">
                                     @foreach($data as $key => $value)
+                                        @if($key === "created_at" OR $key === "updated_at")
+                                            @continue
+                                        @endif
                                         <div class="">
                                             <label for="{{$key}}"
                                                    class="text-md text-gray-600">{{$key}}</label>
@@ -34,11 +37,11 @@
                                                           class="h-36 p-6 w-full border-2 border-gray-300 mb-5 rounded-md"
                                                         >{{$value}}
                                                 </textarea>
-                                            @else
+                                                @continue
+                                            @endif
                                                 <input value="{{$value}}" type="text" autocomplete="off" name="{{$key}}"
                                                        class="h-3 p-6 w-full border-2 border-gray-300 mb-5 rounded-md"
                                                        >
-                                            @endif
                                         </div>
                                     @endforeach
                                 </div>
